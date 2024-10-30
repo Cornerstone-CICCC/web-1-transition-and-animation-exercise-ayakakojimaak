@@ -1,12 +1,77 @@
+$circle-size: 100px;
+
+body {
+  position: relative;
+  margin: 0;
+  height: 100vh;
+}
+
 .circle {
   cursor: pointer;
-  height: 50px;
-  width: 50px;
-  background-color: yellow;
-  border-radius: 50%;
+  z-index: -1;
+  height: $circle-size;
+  width: $circle-size;
+  background-color: rgb(255, 196, 0);
   display: inline-block;
+  position: absolute;
+  animation: move-circle 5s linear infinite;
   &:hover {
     background-color: unset;
     transition: all 0.5s 0s ease;
+  }
+}
+
+@keyframes move-circle {
+  0% {
+    transform: translate(0, 0);
+    border-radius: 0;
+  }
+  25% {
+    transform: translate(calc(100vw - $circle-size), 0);
+    border-radius: 50%;
+  }
+  50% {
+    transform: translate(calc(100vw - $circle-size), calc(100vh - $circle-size));
+    border-radius: 0;
+  }
+  75% {
+    transform: translate(0, calc(100vh - $circle-size));
+    border-radius: 50%;
+  }
+  100% {
+    transform: translate(0, 0);
+    border-radius: 0;
+  }
+}
+
+.progress {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+
+  &__bar-1 {
+    display: block;
+    width: 200px;
+    height: 10px;
+    background: #eee;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+    .bar {
+      height: 100%;
+      background: #00ddff;
+      position: absolute;
+      animation: progress-bar-1 3s linear infinite;
+    }
+  }
+}
+@keyframes progress-bar-1 {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
   }
 }
