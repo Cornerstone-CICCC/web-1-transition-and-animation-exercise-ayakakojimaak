@@ -1,0 +1,14 @@
+.circle {
+  cursor: pointer;
+  height: 50px;
+  width: 50px;
+  background-color: yellow;
+  border-radius: 50%;
+  display: inline-block;
+}
+.circle:hover {
+  background-color: unset;
+  transition: all 0.5s 0s ease;
+}
+
+/*# sourceMappingURL=styles.css.map */
